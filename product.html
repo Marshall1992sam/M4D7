@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Product Details</title>
+  </head>
+  <body>
+    <h1>Dettagli Prodotto</h1>
+
+    <div id="product-details"></div>
+
+    <script>
+      function getQueryStringValue(key) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(key);
+      }
+
+      const productId = getQueryStringValue("id");
+
+      //richiesta API per ottenere i dettagli del prodotto
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM3YTA1M2U3NDZhMDAwMTQ4MTQzMjAiLCJpYXQiOjE2OTgxNDQzNDAsImV4cCI6MTY5OTM1Mzk0MH0.iSu24vGbIdWNpBCNxCGQi8EN1_Qym4C-c-jwYjl0V3M"; //toker
+      fetch(`https://striveschool-api.herokuapp.com/api/product/${productId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((product) => {
+          //DETTAGLI
+          const productDetails = document.getElementById("product-details");
+          productDetails.innerHTML = `
+                    <h2>${product.name}</h2>
+                    <p>Prezzo: ${product.price}€</p>
+                    <p>Descrizione: ${product.description}</p>
+                    <p>Brand: ${product.brand}</p>
+                    <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}" style="width: 500px; height: 500px;">
+                `;
+        })
+        .catch((error) => {
+          console.error("Errore nella richiesta API:", error);
+        });
+    </script>
+  </body>
+</html>

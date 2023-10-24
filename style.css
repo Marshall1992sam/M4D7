@@ -1,0 +1,123 @@
+#griglia .card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+#griglia .card:hover {
+  transform: scale(1.05);
+}
+.card {
+  margin-top: 40px;
+  padding: 0;
+  transition: transform 0.2s ease-in-out; 
+}
+.card:hover {
+  transform: scale(1.05); 
+}
+.card-img-top {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+  
+}
+/*NAV-BAR*/
+nav.navbar {
+  margin-top: 0;
+}
+
+/*ADMIN*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Stile del body */
+body {
+  background-color: #f0f0f0;
+}
+
+/* Intestazione */
+#title {
+  margin-bottom: 50px;
+}
+h1 {
+  text-align: center;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form di aggiunta del prodotto */
+#add-product-form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Griglia dei prodotti */
+#card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#products-grid{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+
+/* Media query per adattare la griglia su schermi più piccoli */
+@media screen and (max-width: 768px) {
+  #products-grid {
+    flex-direction: column;
+  }
+
+  .product {
+    width: 100%;
+  }
+}
